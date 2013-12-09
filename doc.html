@@ -29,8 +29,9 @@
                 function receiveMessage(event)
                 {
                     schema.definitions(event.data).done(function(defs) {
-                        $.extend(defs, defs[Object.keys(defs)[0]]);
-                        console.log("d", defs);
+                        var firstKey = Object.keys(defs)[0];
+                        $.extend(defs, defs[firstKey]);
+                        delete defs[firstKey]                        
                         var doc = $("#doc");
                         docson.doc(doc, defs);
                         doc.find(".property-type-expandable").toggleClass("property-type-expanded");
