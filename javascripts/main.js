@@ -58,12 +58,25 @@ function startAutoComplete(editor){
     }
 }
 
+function genDoc() {
+    document.getElementById("doc").contentWindow.postMessage(editor.getValue(), "*");
+}
+
+var t;
+function triggerDoc() {
+    if(t) {
+        clearTimeout(t);
+    }
+    t=setTimeout(genDoc, 200);
+}
+
 function onUpdateDocument(e){
     if (selectFileName){
         if (!syncStop){
             try{
                 syncTypeScriptServiceContent(selectFileName, e);
                 updateMarker(e);
+                triggerDoc();
             }catch(ex){
 
             }
@@ -296,8 +309,9 @@ $(function(){
     document.getElementById('output').style.fontSize='14px';
 
     loadTypeScriptLibrary();
-    loadFile("samples/greeter.ts");
-
+    loadFile("samples/product.ts");
+    setTimeout(genDoc, 1000);
+    
     editor.addEventListener("change", onUpdateDocument);
     editor.addEventListener("changeSelection", onChangeCursor);
 

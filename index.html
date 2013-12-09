@@ -1,8 +1,8 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Typescript playground on ace editor</title>
-	<meta name="description" content="Typescript playground on ace editor" /><meta>
+	<title>typson+docson</title>
+	<meta name="description" content="Typson and Docson at play" /><meta>
     <link type="text/css" rel="stylesheet" href="stylesheets/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="stylesheets/style.css" />
   </head>
@@ -10,11 +10,10 @@
 
     <div class="fluid-container" style="padding:5px">
       <div>
-        <h1> TypeScript Playground on Ace Editor</h1>
+        <h1><a href="https://github.com/lbovet/typson">Typson</a> and <a href="https://github.com/lbovet/docson">Docson</a> at play</h1>
         <div style="padding:10px">
           <p>
-            <a href="http://www.typescriptlang.org/Playground/">typescript playground </a> build on
-            <a href="http://ace.ajax.org">ace editor</a>.
+            Playground based on <a href="http://hi104.github.io/typescript-playground-on-ace/">typescript-playground-on-ace</a>
           </p>
           <p>
             <ul>
@@ -24,20 +23,18 @@
         </div>
       </div>
 
-      <div class="editor-area">
-        <div class="warp-container">
-          <div class="langauge-title" style="float:left">
-            <div style="float:left">
-              <h2>typescript</h2>
-            </div>
-            <div style="float:left;padding-top:5px;padding-left:20px">
+        <div style="padding-top:5px;padding-left:20px">
               <select id="select-sample">
-                <option selected="selected" value="greeter.ts">Walkthrough:Classes</option>
-                <option value="raytracer.ts">Raytracer</option>
-                <option value="animal.ts">Simple inheritance</option>
+                <option selected="selected" value="product.ts">Product</option>
+                <!-- <option value="raytracer.ts">Raytracer</option>
+                <option value="animal.ts">Simple inheritance</option> -->
 
               </select>
             </div>
+
+       <div class="editor-area">
+        <div class="warp-container">
+          <div class="langauge-title" style="float:left">
             <div style="clear:both"></div>
           </div>
           <div class="editor-container">
@@ -48,26 +45,20 @@
 
         <div class="warp-container">
           <div class="langauge-title" style="float:right">
-            <div style="float:left">
-              <div id="javascript-run">Run</div>
-            </div>
-            <div style="float:left;margin-left:10px">
-              <h2>javascript</h2>
-            </div>
           </div>
           <div style="clear:both"></div>
-          <div class="editor-container" style="float:right">
-            <div id="output">
-            </div>
-          </div>
+          <iframe id="doc" src="doc.html" class="editor-container" style="float:right;border:0">
+ 
+          </iframe>
         </div>
       </div>
 
       <div class="footer" style="padding:5px;">
-        <p>source code on <a href="https://github.com/hi104/typescript-playground-on-ace">github</a></p>
+        <p>source code on <a href="https://github.com/lbovet/typson-demo">github</a></p>
       </div>
     </div>
-
+           <div id="output">
+            </div>
   </body>
 
   <script type="text/javascript">

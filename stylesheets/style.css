@@ -24,6 +24,7 @@ body{
 }
 
 #output {
+    display: none;
     position:absolute;
     max-height:10000;
     top: 6px;

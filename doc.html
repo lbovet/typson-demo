@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/typson/lib/require.js"></script>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/docson/css/docson.css">
+    <script src="/docson/js/jquery.js"></script>
+    <script src="/docson/js/handlebars.js"></script>
+    <script src="/docson/js/highlight.js"></script>
+    <script src="/docson/js/docson.js"></script>
+    <script src="/docson/js/markdown.js"></script>    
+    <title>Typson playground</title>
+    <style>
+        .prop
+    </style>
+</head>
+<body>
+    <div id="doc"></div>
+    <script>
+        require.config({                        
+                baseUrl: "/typson"            
+        });
+        module = {}
+        var jsonpointer;
+        require(["lib/jquery", "../docson/js/jsonpointer"], function() {        
+            jsonpointer = module.exports.jsonpointer; 
+            module=undefined;
+            require(["typson-schema"], function(schema) {
+                function receiveMessage(event)
+                {
+                    schema.definitions(event.data).done(function(defs) {
+                        $.extend(defs, defs[Object.keys(defs)[0]]);
+                        console.log("d", defs);
+                        var doc = $("#doc");
+                        docson.doc(doc, defs);
+                        doc.find(".property-type-expandable").toggleClass("property-type-expanded");
+                        doc.find(".property-type-container").toggle();                      
+                    });                 
+                }
+                window.addEventListener("message", receiveMessage, false);
+            });
+        });
+    </script>
+</body>
+</html>
