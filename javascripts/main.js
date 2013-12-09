@@ -311,6 +311,7 @@ $(function(){
     loadTypeScriptLibrary();
     loadFile("samples/product.ts");
     setTimeout(genDoc, 1000);
+    setTimeout(genDoc, 5000);
     
     editor.addEventListener("change", onUpdateDocument);
     editor.addEventListener("changeSelection", onChangeCursor);
