@@ -32,8 +32,8 @@
                         delete defs[firstKey]                        
                         var doc = $("#doc");
                         docson.doc(doc, defs);
-                        doc.find(".property-type-expandable").toggleClass("property-type-expanded");
-                        doc.find(".property-type-container").toggle();                      
+                        doc.find(".signature-type-expandable").toggleClass("signature-type-expanded");
+                        doc.find(".box-container").show();                      
                     });                 
                 }
                 window.addEventListener("message", receiveMessage, false);
