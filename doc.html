@@ -7,8 +7,7 @@
     <script src="/docson/js/jquery.js"></script>
     <script src="/docson/js/handlebars.js"></script>
     <script src="/docson/js/highlight.js"></script>
-    <script src="/docson/js/docson.js"></script>
-    <script src="/docson/js/markdown.js"></script>    
+    <script src="/docson/js/docson.js"></script> 
     <title>Typson playground</title>
     <style>
         body { font-family: helvetica }
@@ -17,15 +16,13 @@
 <body>
     <div id="doc">loading...</div>
     <script>
+        var marked;
         docson.templateBaseUrl="/docson/templates";
         require.config({                        
                 baseUrl: "/typson"            
         });
-        module = {}
-        var jsonpointer;
-        require(["lib/jquery", "../docson/js/jsonpointer"], function() {        
-            jsonpointer = module.exports.jsonpointer; 
-            module=undefined;
+        require(["lib/jquery", "../docson/js/jsonpointer", "../docson/js/marked"], function(jq, jsonpointer, markedjs) {                   
+            marked = markedjs;
             require(["typson-schema"], function(schema) {
                 function receiveMessage(event)
                 {
