@@ -308,7 +308,6 @@ $(function(){
     document.getElementById('editor').style.fontSize='14px';
     document.getElementById('output').style.fontSize='14px';
 
-    loadTypeScriptLibrary();
     loadFile("samples/product.ts");
     setTimeout(genDoc, 1000);
     setTimeout(genDoc, 5000);

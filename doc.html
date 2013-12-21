@@ -7,6 +7,7 @@
     <script src="/docson/js/jquery.js"></script>
     <script src="/docson/js/handlebars.js"></script>
     <script src="/docson/js/highlight.js"></script>
+    <script src="/docson/js/traverse.js"></script>
     <script src="/docson/js/docson.js"></script> 
     <title>Typson playground</title>
     <style>
@@ -19,9 +20,11 @@
         var marked;
         docson.templateBaseUrl="/docson/templates";
         require.config({                        
-                baseUrl: "/typson"            
+                baseUrl: "/typson",
+                urlArgs: "bust=" +  (new Date()).getTime()
+                  
         });
-        require(["lib/jquery", "../docson/js/jsonpointer", "../docson/js/marked"], function(jq, jsonpointer, markedjs) {                   
+        require(["../docson/js/jsonpointer", "../docson/js/marked"], function(jsonpointer, markedjs) {                   
             marked = markedjs;
             require(["typson-schema"], function(schema) {
                 function receiveMessage(event)
