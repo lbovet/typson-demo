@@ -20,9 +20,7 @@
         var marked;
         docson.templateBaseUrl="/docson/templates";
         require.config({                        
-                baseUrl: "/typson",
-                urlArgs: "bust=" +  (new Date()).getTime()
-                  
+                baseUrl: "/typson"                
         });
         require(["../docson/js/jsonpointer", "../docson/js/marked"], function(jsonpointer, markedjs) {                   
             marked = markedjs;
