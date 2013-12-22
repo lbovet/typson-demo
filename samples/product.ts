@@ -1,3 +1,7 @@
+enum Origin {
+    LOCAL, IMPORTED
+} 
+
 /**
 * Things that we sell 
 */
@@ -12,6 +16,9 @@ interface Product {
     
     /** Used for indexing */
     tags: Tag[];
+    
+    /** Where it comes from */
+    origin: Origin
 }
 
 interface Category {
