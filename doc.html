@@ -12,13 +12,13 @@
 <body>
     <div id="doc">loading...</div>
     <script>        
-        require.config({ baseUrl: "/docson" });
-        require(["docson"], function(docson) { 
-            require.config({ baseUrl: "/typson" });                  
-            docson.templateBaseUrl="/docson/templates";
-            require(["typson-schema"], function(schema) {
-                function receiveMessage(event)
-                {
+       function receiveMessage(event)
+       {
+            require.config({ baseUrl: "/docson" });
+            require(["docson"], function(docson) { 
+                require.config({ baseUrl: "/typson" });                  
+                docson.templateBaseUrl="/docson/templates";
+                require(["typson-schema"], function(schema) {
                     schema.definitions(event.data).done(function(defs) {
                         var firstKey = Object.keys(defs)[0];
                         var doc = $("#doc");
@@ -26,11 +26,11 @@
                             doc.find(".signature-type-expandable").toggleClass("signature-type-expanded");
                             doc.find(".box-container").show();                      
                         });
-                    });                 
-                }
-                window.addEventListener("message", receiveMessage, false);
+                    });                              
+                });
             });
-        });
+        }
+        window.addEventListener("message", receiveMessage, false);
     </script>
 </body>
 </html>

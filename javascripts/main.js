@@ -309,8 +309,10 @@ $(function(){
     document.getElementById('output').style.fontSize='14px';
 
     loadFile("samples/product.ts");
-    setTimeout(genDoc, 1000);
-    setTimeout(genDoc, 5000);
+    t=setTimeout(genDoc, 100);
+    t=setTimeout(genDoc, 500);
+    t=setTimeout(genDoc, 1000);
+    t=setTimeout(genDoc, 5000);
     
     editor.addEventListener("change", onUpdateDocument);
     editor.addEventListener("changeSelection", onChangeCursor);
