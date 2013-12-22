@@ -21,12 +21,11 @@
                 {
                     schema.definitions(event.data).done(function(defs) {
                         var firstKey = Object.keys(defs)[0];
-                        $.extend(defs, defs[firstKey]);
-                        delete defs[firstKey]                        
                         var doc = $("#doc");
-                        docson.doc(doc, defs);
-                        doc.find(".signature-type-expandable").toggleClass("signature-type-expanded");
-                        doc.find(".box-container").show();                      
+                        docson.doc(doc, defs, firstKey).done(function() {
+                            doc.find(".signature-type-expandable").toggleClass("signature-type-expanded");
+                            doc.find(".box-container").show();                      
+                        });
                     });                 
                 }
                 window.addEventListener("message", receiveMessage, false);
