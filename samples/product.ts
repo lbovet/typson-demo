@@ -18,7 +18,7 @@ interface Product {
     tags: Tag[];
     
     /** Where it comes from */
-    origin: Origin
+    origin: Origin;
 }
 
 interface Category {
