@@ -21,14 +21,18 @@ interface Product {
     origin: Origin;
 }
 
-interface Category {
+interface Ordered {
+    /** position for sorting */
+    order: number;
+}
+
+interface Category extends Ordered {
     /** Uniquely identifies the category */
     name: string;
     /** Classification level from 1 to 5 (highest) */
     level: number;
 }
-
-interface Tag {
+    
+interface Tag extends Ordered {
     name: string;
-    order: number;
 }
