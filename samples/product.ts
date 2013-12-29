@@ -3,33 +3,38 @@ enum Origin {
 } 
 
 /**
-* Things that we sell 
+* Thing that we sell.
 */
 interface Product {
     /** 
-     * Uniquely defines the product
+     * Uniquely defines the _product_
      * This must be unique, then
      */
     name: string;
+
     /** Classification */
     category: Category;
     
     /** Used for indexing */
-    tags: Tag[];
+    tags?: Tag[];
     
     /** Where it comes from */
-    origin: Origin;
+    origin?: Origin;
+    
+    /** Additional info */
+    props: { [k:string]: string };
 }
 
 interface Ordered {
-    /** position for sorting */
-    order: number;
+    /** Position for sorting @type integer */
+    order?: number;
 }
 
 interface Category extends Ordered {
-    /** Uniquely identifies the category */
+    /** Uniquely identifies the category @pattern [A-Z][a-z][0-9]*/
     name: string;
-    /** Classification level from 1 to 5 (highest) */
+    
+    /** Classification level @minimum 1 @maximum 5 */
     level: number;
 }
     
