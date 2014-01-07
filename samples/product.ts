@@ -1,5 +1,6 @@
 enum Origin {
-    LOCAL, IMPORTED
+    LOCAL, // From here
+    IMPORTED // From elsewhere
 } 
 
 /**
@@ -12,8 +13,7 @@ interface Product {
      */
     name: string;
 
-    /** Classification */
-    category: Category;
+    category: Category; // Classification
     
     /** Used for indexing */
     tags?: Tag[];
@@ -22,7 +22,7 @@ interface Product {
     origin?: Origin;
     
     /** Additional info */
-    props: { [k:string]: string };
+    props: { [k:string]: string; };
 }
 
 interface Ordered {
